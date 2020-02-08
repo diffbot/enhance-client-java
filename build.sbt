@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.diffbot",
     name := "enhance-client",
-    version := "0.1.0",
+    version := "1.0.0-rc.01",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),
