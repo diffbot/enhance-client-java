@@ -1,7 +1,7 @@
 # enhance-client
 
 Diffbot Enhance Service
-- API version: v3.0.0
+- API version: v1.0.0
 
 Enhance is an API to find a person or organization in the Knowledge Graph using partial data
 
