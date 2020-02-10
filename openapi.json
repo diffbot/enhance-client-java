@@ -25,12 +25,12 @@
     "description" : "Enhance Live Endpoint"
   } ],
   "paths" : {
-    "/kg/enhance_endpoint/bulk/{bulkjobId}/status" : {
+    "/kg/enhance_endpoint/bulk/{bulkjobId}/stop" : {
       "get" : {
         "tags" : [ "Bulk Enhance Endpoint" ],
-        "summary" : "Bulk Enhance Status Endpoint",
-        "description" : "Get status of a bulk Enhance job",
-        "operationId" : "bulkjobStatus",
+        "summary" : "Bulkjob stop",
+        "description" : "Stop an incomplete job",
+        "operationId" : "stopBulkjob",
         "parameters" : [ {
           "name" : "token",
           "in" : "query",
@@ -49,21 +49,11 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Bulkjob status",
+            "description" : "Enhanced entity",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/BulkjobStatusResponse"
-                }
-              }
-            }
-          },
-          "201" : {
-            "description" : "Bulkjob is still executing or is stopped",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/BulkjobStatusResponse"
+                  "$ref" : "#/components/schemas/BulkjobRecoveryStatusResponse"
                 }
               }
             }
@@ -111,12 +101,12 @@
         }
       }
     },
-    "/kg/enhance_endpoint/bulk/{bulkjobId}/stop" : {
+    "/kg/enhance_endpoint/bulk/{bulkjobId}/status" : {
       "get" : {
         "tags" : [ "Bulk Enhance Endpoint" ],
-        "summary" : "Bulkjob stop",
-        "description" : "Stop an incomplete job",
-        "operationId" : "stopBulkjob",
+        "summary" : "Bulk Enhance Status Endpoint",
+        "description" : "Get status of a bulk Enhance job",
+        "operationId" : "bulkjobStatus",
         "parameters" : [ {
           "name" : "token",
           "in" : "query",
@@ -135,11 +125,21 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Enhanced entity",
+            "description" : "Bulkjob status",
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/BulkjobRecoveryStatusResponse"
+                  "$ref" : "#/components/schemas/BulkjobStatusResponse"
+                }
+              }
+            }
+          },
+          "201" : {
+            "description" : "Bulkjob is still executing or is stopped",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BulkjobStatusResponse"
                 }
               }
             }
@@ -622,6 +622,42 @@
   },
   "components" : {
     "schemas" : {
+      "BulkjobRecoveryStatusResponse" : {
+        "type" : "object",
+        "properties" : {
+          "status" : {
+            "type" : "string",
+            "description" : "Bulkjob recovery status",
+            "enum" : [ "NOT_STARTED", "IN_PROCESS", "COMPLETE", "COMPLETE_WITH_FAILURES", "STOPPED", "ERROR_FINALIZING", "UNKNOWN" ]
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Bulkjob recovery status message"
+          }
+        }
+      },
+      "RequestError" : {
+        "type" : "object",
+        "properties" : {
+          "error" : {
+            "type" : "boolean",
+            "description" : "Always `true`"
+          },
+          "code" : {
+            "type" : "integer",
+            "description" : "Error code (same as the HTTP status code)",
+            "format" : "int32"
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Error message"
+          },
+          "query" : {
+            "type" : "object",
+            "description" : "Submitted Enhance query"
+          }
+        }
+      },
       "BulkjobStatus" : {
         "type" : "object",
         "properties" : {
@@ -666,42 +702,6 @@
           },
           "content" : {
             "$ref" : "#/components/schemas/BulkjobStatus"
-          }
-        }
-      },
-      "RequestError" : {
-        "type" : "object",
-        "properties" : {
-          "error" : {
-            "type" : "boolean",
-            "description" : "Always `true`"
-          },
-          "code" : {
-            "type" : "integer",
-            "description" : "Error code (same as the HTTP status code)",
-            "format" : "int32"
-          },
-          "message" : {
-            "type" : "string",
-            "description" : "Error message"
-          },
-          "query" : {
-            "type" : "object",
-            "description" : "Submitted Enhance query"
-          }
-        }
-      },
-      "BulkjobRecoveryStatusResponse" : {
-        "type" : "object",
-        "properties" : {
-          "status" : {
-            "type" : "string",
-            "description" : "Bulkjob recovery status",
-            "enum" : [ "NOT_STARTED", "IN_PROCESS", "COMPLETE", "COMPLETE_WITH_FAILURES", "STOPPED", "ERROR_FINALIZING", "UNKNOWN" ]
-          },
-          "message" : {
-            "type" : "string",
-            "description" : "Bulkjob recovery status message"
           }
         }
       },
