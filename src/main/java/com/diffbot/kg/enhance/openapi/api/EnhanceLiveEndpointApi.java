@@ -72,7 +72,6 @@ public class EnhanceLiveEndpointApi {
      * @param mode &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. (optional)
      * @param nonCanonicalFacts &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. (optional)
      * @param jsonmode &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. (optional)
-     * @param leadIQToken leadIQ token (optional)
      * @param rocketReachToken rocketReach token (optional)
      * @param xDiffbotRequestId Request UUID for tracking. If available, will be set on response. (optional)
      * @param _callback Callback for upload/download progress
@@ -88,7 +87,7 @@ public class EnhanceLiveEndpointApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call enhanceCall(String token, String type, String id, String name, String url, String phone, String email, String description, String employer, String title, String school, String location, String mode, String nonCanonicalFacts, String jsonmode, String leadIQToken, String rocketReachToken, String xDiffbotRequestId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call enhanceCall(String token, String type, String id, String name, String url, String phone, String email, String description, String employer, String title, String school, String location, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String xDiffbotRequestId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -156,10 +155,6 @@ public class EnhanceLiveEndpointApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("jsonmode", jsonmode));
         }
 
-        if (leadIQToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("leadIQToken", leadIQToken));
-        }
-
         if (rocketReachToken != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("rocketReachToken", rocketReachToken));
         }
@@ -190,10 +185,10 @@ public class EnhanceLiveEndpointApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call enhanceValidateBeforeCall(String token, String type, String id, String name, String url, String phone, String email, String description, String employer, String title, String school, String location, String mode, String nonCanonicalFacts, String jsonmode, String leadIQToken, String rocketReachToken, String xDiffbotRequestId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call enhanceValidateBeforeCall(String token, String type, String id, String name, String url, String phone, String email, String description, String employer, String title, String school, String location, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String xDiffbotRequestId, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = enhanceCall(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, leadIQToken, rocketReachToken, xDiffbotRequestId, _callback);
+        okhttp3.Call localVarCall = enhanceCall(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, rocketReachToken, xDiffbotRequestId, _callback);
         return localVarCall;
 
     }
@@ -216,7 +211,6 @@ public class EnhanceLiveEndpointApi {
      * @param mode &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. (optional)
      * @param nonCanonicalFacts &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. (optional)
      * @param jsonmode &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. (optional)
-     * @param leadIQToken leadIQ token (optional)
      * @param rocketReachToken rocketReach token (optional)
      * @param xDiffbotRequestId Request UUID for tracking. If available, will be set on response. (optional)
      * @return EnhanceResponse
@@ -231,8 +225,8 @@ public class EnhanceLiveEndpointApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public EnhanceResponse enhance(String token, String type, String id, String name, String url, String phone, String email, String description, String employer, String title, String school, String location, String mode, String nonCanonicalFacts, String jsonmode, String leadIQToken, String rocketReachToken, String xDiffbotRequestId) throws ApiException {
-        ApiResponse<EnhanceResponse> localVarResp = enhanceWithHttpInfo(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, leadIQToken, rocketReachToken, xDiffbotRequestId);
+    public EnhanceResponse enhance(String token, String type, String id, String name, String url, String phone, String email, String description, String employer, String title, String school, String location, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String xDiffbotRequestId) throws ApiException {
+        ApiResponse<EnhanceResponse> localVarResp = enhanceWithHttpInfo(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, rocketReachToken, xDiffbotRequestId);
         return localVarResp.getData();
     }
 
@@ -254,7 +248,6 @@ public class EnhanceLiveEndpointApi {
      * @param mode &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. (optional)
      * @param nonCanonicalFacts &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. (optional)
      * @param jsonmode &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. (optional)
-     * @param leadIQToken leadIQ token (optional)
      * @param rocketReachToken rocketReach token (optional)
      * @param xDiffbotRequestId Request UUID for tracking. If available, will be set on response. (optional)
      * @return ApiResponse&lt;EnhanceResponse&gt;
@@ -269,8 +262,8 @@ public class EnhanceLiveEndpointApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<EnhanceResponse> enhanceWithHttpInfo(String token, String type, String id, String name, String url, String phone, String email, String description, String employer, String title, String school, String location, String mode, String nonCanonicalFacts, String jsonmode, String leadIQToken, String rocketReachToken, String xDiffbotRequestId) throws ApiException {
-        okhttp3.Call localVarCall = enhanceValidateBeforeCall(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, leadIQToken, rocketReachToken, xDiffbotRequestId, null);
+    public ApiResponse<EnhanceResponse> enhanceWithHttpInfo(String token, String type, String id, String name, String url, String phone, String email, String description, String employer, String title, String school, String location, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String xDiffbotRequestId) throws ApiException {
+        okhttp3.Call localVarCall = enhanceValidateBeforeCall(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, rocketReachToken, xDiffbotRequestId, null);
         Type localVarReturnType = new TypeToken<EnhanceResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -293,7 +286,6 @@ public class EnhanceLiveEndpointApi {
      * @param mode &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. (optional)
      * @param nonCanonicalFacts &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. (optional)
      * @param jsonmode &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. (optional)
-     * @param leadIQToken leadIQ token (optional)
      * @param rocketReachToken rocketReach token (optional)
      * @param xDiffbotRequestId Request UUID for tracking. If available, will be set on response. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -309,9 +301,9 @@ public class EnhanceLiveEndpointApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call enhanceAsync(String token, String type, String id, String name, String url, String phone, String email, String description, String employer, String title, String school, String location, String mode, String nonCanonicalFacts, String jsonmode, String leadIQToken, String rocketReachToken, String xDiffbotRequestId, final ApiCallback<EnhanceResponse> _callback) throws ApiException {
+    public okhttp3.Call enhanceAsync(String token, String type, String id, String name, String url, String phone, String email, String description, String employer, String title, String school, String location, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String xDiffbotRequestId, final ApiCallback<EnhanceResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = enhanceValidateBeforeCall(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, leadIQToken, rocketReachToken, xDiffbotRequestId, _callback);
+        okhttp3.Call localVarCall = enhanceValidateBeforeCall(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, rocketReachToken, xDiffbotRequestId, _callback);
         Type localVarReturnType = new TypeToken<EnhanceResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="enhance"></a>
 # **enhance**
-> EnhanceResponse enhance(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, leadIQToken, rocketReachToken, xDiffbotRequestId)
+> EnhanceResponse enhance(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, rocketReachToken, xDiffbotRequestId)
 
 Live Enhance Endpoint
 
@@ -45,11 +45,10 @@ public class Example {
     String mode = "mode_example"; // String | `mode=refresh` indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data.
     String nonCanonicalFacts = "nonCanonicalFacts_example"; // String | `nonCanonicalFacts=true` returns non-canonical facts.
     String jsonmode = "jsonmode_example"; // String | `jsonmode=extended` returns origin information for facts.
-    String leadIQToken = "leadIQToken_example"; // String | leadIQ token
     String rocketReachToken = "rocketReachToken_example"; // String | rocketReach token
     String xDiffbotRequestId = "xDiffbotRequestId_example"; // String | Request UUID for tracking. If available, will be set on response.
     try {
-      EnhanceResponse result = apiInstance.enhance(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, leadIQToken, rocketReachToken, xDiffbotRequestId);
+      EnhanceResponse result = apiInstance.enhance(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, rocketReachToken, xDiffbotRequestId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EnhanceLiveEndpointApi#enhance");
@@ -81,7 +80,6 @@ Name | Type | Description  | Notes
  **mode** | **String**| &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. | [optional]
  **nonCanonicalFacts** | **String**| &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. | [optional]
  **jsonmode** | **String**| &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. | [optional]
- **leadIQToken** | **String**| leadIQ token | [optional]
  **rocketReachToken** | **String**| rocketReach token | [optional]
  **xDiffbotRequestId** | **String**| Request UUID for tracking. If available, will be set on response. | [optional]
 

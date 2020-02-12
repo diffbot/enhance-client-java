@@ -81,7 +81,7 @@ No authorization required
 
 <a name="enhanceBulkjob"></a>
 # **enhanceBulkjob**
-> BulkjobAccepted enhanceBulkjob(token, tag, mode, nonCanonicalFacts, jsonmode, leadIQToken, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody)
+> BulkjobAccepted enhanceBulkjob(token, tag, mode, nonCanonicalFacts, jsonmode, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody)
 
 Bulk Enhance Endpoint
 
@@ -107,13 +107,12 @@ public class Example {
     String mode = "mode_example"; // String | `mode=refresh` indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data.
     String nonCanonicalFacts = "nonCanonicalFacts_example"; // String | `nonCanonicalFacts=true` returns non-canonical facts.
     String jsonmode = "jsonmode_example"; // String | `jsonmode=extended` returns origin information for facts.
-    String leadIQToken = "leadIQToken_example"; // String | leadIQ token
     String rocketReachToken = "rocketReachToken_example"; // String | rocketReach token
     String webhookurl = "webhookurl_example"; // String | Webhook URL
     String xDiffbotRequestId = "xDiffbotRequestId_example"; // String | Request UUID for tracking. If available, will be set on response.
     List<Object> requestBody = null; // List<Object> | Bulk query payload
     try {
-      BulkjobAccepted result = apiInstance.enhanceBulkjob(token, tag, mode, nonCanonicalFacts, jsonmode, leadIQToken, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody);
+      BulkjobAccepted result = apiInstance.enhanceBulkjob(token, tag, mode, nonCanonicalFacts, jsonmode, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BulkEnhanceEndpointApi#enhanceBulkjob");
@@ -135,7 +134,6 @@ Name | Type | Description  | Notes
  **mode** | **String**| &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. | [optional]
  **nonCanonicalFacts** | **String**| &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. | [optional]
  **jsonmode** | **String**| &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. | [optional]
- **leadIQToken** | **String**| leadIQ token | [optional]
  **rocketReachToken** | **String**| rocketReach token | [optional]
  **webhookurl** | **String**| Webhook URL | [optional]
  **xDiffbotRequestId** | **String**| Request UUID for tracking. If available, will be set on response. | [optional]
