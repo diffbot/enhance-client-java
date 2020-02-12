@@ -203,7 +203,6 @@ public class BulkEnhanceEndpointApi {
      * @param mode &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. (optional)
      * @param nonCanonicalFacts &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. (optional)
      * @param jsonmode &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. (optional)
-     * @param leadIQToken leadIQ token (optional)
      * @param rocketReachToken rocketReach token (optional)
      * @param webhookurl Webhook URL (optional)
      * @param xDiffbotRequestId Request UUID for tracking. If available, will be set on response. (optional)
@@ -222,7 +221,7 @@ public class BulkEnhanceEndpointApi {
         <tr><td> 503 </td><td> Request too large </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call enhanceBulkjobCall(String token, List<String> tag, String mode, String nonCanonicalFacts, String jsonmode, String leadIQToken, String rocketReachToken, String webhookurl, String xDiffbotRequestId, List<Object> requestBody, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call enhanceBulkjobCall(String token, List<String> tag, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String webhookurl, String xDiffbotRequestId, List<Object> requestBody, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = requestBody;
 
         // create path and map variables
@@ -248,10 +247,6 @@ public class BulkEnhanceEndpointApi {
 
         if (jsonmode != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("jsonmode", jsonmode));
-        }
-
-        if (leadIQToken != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("leadIQToken", leadIQToken));
         }
 
         if (rocketReachToken != null) {
@@ -288,10 +283,10 @@ public class BulkEnhanceEndpointApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call enhanceBulkjobValidateBeforeCall(String token, List<String> tag, String mode, String nonCanonicalFacts, String jsonmode, String leadIQToken, String rocketReachToken, String webhookurl, String xDiffbotRequestId, List<Object> requestBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call enhanceBulkjobValidateBeforeCall(String token, List<String> tag, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String webhookurl, String xDiffbotRequestId, List<Object> requestBody, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = enhanceBulkjobCall(token, tag, mode, nonCanonicalFacts, jsonmode, leadIQToken, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody, _callback);
+        okhttp3.Call localVarCall = enhanceBulkjobCall(token, tag, mode, nonCanonicalFacts, jsonmode, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody, _callback);
         return localVarCall;
 
     }
@@ -304,7 +299,6 @@ public class BulkEnhanceEndpointApi {
      * @param mode &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. (optional)
      * @param nonCanonicalFacts &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. (optional)
      * @param jsonmode &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. (optional)
-     * @param leadIQToken leadIQ token (optional)
      * @param rocketReachToken rocketReach token (optional)
      * @param webhookurl Webhook URL (optional)
      * @param xDiffbotRequestId Request UUID for tracking. If available, will be set on response. (optional)
@@ -322,8 +316,8 @@ public class BulkEnhanceEndpointApi {
         <tr><td> 503 </td><td> Request too large </td><td>  -  </td></tr>
      </table>
      */
-    public BulkjobAccepted enhanceBulkjob(String token, List<String> tag, String mode, String nonCanonicalFacts, String jsonmode, String leadIQToken, String rocketReachToken, String webhookurl, String xDiffbotRequestId, List<Object> requestBody) throws ApiException {
-        ApiResponse<BulkjobAccepted> localVarResp = enhanceBulkjobWithHttpInfo(token, tag, mode, nonCanonicalFacts, jsonmode, leadIQToken, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody);
+    public BulkjobAccepted enhanceBulkjob(String token, List<String> tag, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String webhookurl, String xDiffbotRequestId, List<Object> requestBody) throws ApiException {
+        ApiResponse<BulkjobAccepted> localVarResp = enhanceBulkjobWithHttpInfo(token, tag, mode, nonCanonicalFacts, jsonmode, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody);
         return localVarResp.getData();
     }
 
@@ -335,7 +329,6 @@ public class BulkEnhanceEndpointApi {
      * @param mode &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. (optional)
      * @param nonCanonicalFacts &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. (optional)
      * @param jsonmode &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. (optional)
-     * @param leadIQToken leadIQ token (optional)
      * @param rocketReachToken rocketReach token (optional)
      * @param webhookurl Webhook URL (optional)
      * @param xDiffbotRequestId Request UUID for tracking. If available, will be set on response. (optional)
@@ -353,8 +346,8 @@ public class BulkEnhanceEndpointApi {
         <tr><td> 503 </td><td> Request too large </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<BulkjobAccepted> enhanceBulkjobWithHttpInfo(String token, List<String> tag, String mode, String nonCanonicalFacts, String jsonmode, String leadIQToken, String rocketReachToken, String webhookurl, String xDiffbotRequestId, List<Object> requestBody) throws ApiException {
-        okhttp3.Call localVarCall = enhanceBulkjobValidateBeforeCall(token, tag, mode, nonCanonicalFacts, jsonmode, leadIQToken, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody, null);
+    public ApiResponse<BulkjobAccepted> enhanceBulkjobWithHttpInfo(String token, List<String> tag, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String webhookurl, String xDiffbotRequestId, List<Object> requestBody) throws ApiException {
+        okhttp3.Call localVarCall = enhanceBulkjobValidateBeforeCall(token, tag, mode, nonCanonicalFacts, jsonmode, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody, null);
         Type localVarReturnType = new TypeToken<BulkjobAccepted>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -367,7 +360,6 @@ public class BulkEnhanceEndpointApi {
      * @param mode &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. (optional)
      * @param nonCanonicalFacts &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. (optional)
      * @param jsonmode &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. (optional)
-     * @param leadIQToken leadIQ token (optional)
      * @param rocketReachToken rocketReach token (optional)
      * @param webhookurl Webhook URL (optional)
      * @param xDiffbotRequestId Request UUID for tracking. If available, will be set on response. (optional)
@@ -386,9 +378,9 @@ public class BulkEnhanceEndpointApi {
         <tr><td> 503 </td><td> Request too large </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call enhanceBulkjobAsync(String token, List<String> tag, String mode, String nonCanonicalFacts, String jsonmode, String leadIQToken, String rocketReachToken, String webhookurl, String xDiffbotRequestId, List<Object> requestBody, final ApiCallback<BulkjobAccepted> _callback) throws ApiException {
+    public okhttp3.Call enhanceBulkjobAsync(String token, List<String> tag, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String webhookurl, String xDiffbotRequestId, List<Object> requestBody, final ApiCallback<BulkjobAccepted> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = enhanceBulkjobValidateBeforeCall(token, tag, mode, nonCanonicalFacts, jsonmode, leadIQToken, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody, _callback);
+        okhttp3.Call localVarCall = enhanceBulkjobValidateBeforeCall(token, tag, mode, nonCanonicalFacts, jsonmode, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody, _callback);
         Type localVarReturnType = new TypeToken<BulkjobAccepted>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

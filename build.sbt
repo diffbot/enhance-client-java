@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.diffbot",
     name := "enhance-client",
-    version := "0.1.0",
+    version := "1.0.0-rc.04",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),
@@ -16,7 +16,7 @@ lazy val root = (project in file(".")).
       "org.apache.commons" % "commons-lang3" % "3.9",
       "io.gsonfire" % "gson-fire" % "1.8.3" % "compile",
       "javax.annotation" % "jsr250-api" % "1.0" % "compile",
-      "junit" % "junit" % "4.12" % "test",
+      "junit" % "junit" % "4.13" % "test",
       "com.novocode" % "junit-interface" % "0.10" % "test"
     )
   )

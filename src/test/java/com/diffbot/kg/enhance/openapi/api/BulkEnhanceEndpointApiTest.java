@@ -67,12 +67,11 @@ public class BulkEnhanceEndpointApiTest {
         String mode = null;
         String nonCanonicalFacts = null;
         String jsonmode = null;
-        String leadIQToken = null;
         String rocketReachToken = null;
         String webhookurl = null;
         String xDiffbotRequestId = null;
         List<Object> requestBody = null;
-        BulkjobAccepted response = api.enhanceBulkjob(token, tag, mode, nonCanonicalFacts, jsonmode, leadIQToken, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody);
+        BulkjobAccepted response = api.enhanceBulkjob(token, tag, mode, nonCanonicalFacts, jsonmode, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody);
 
         // TODO: test validations
     }

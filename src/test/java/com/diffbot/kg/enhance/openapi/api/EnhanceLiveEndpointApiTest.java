@@ -58,10 +58,9 @@ public class EnhanceLiveEndpointApiTest {
         String mode = null;
         String nonCanonicalFacts = null;
         String jsonmode = null;
-        String leadIQToken = null;
         String rocketReachToken = null;
         String xDiffbotRequestId = null;
-        EnhanceResponse response = api.enhance(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, leadIQToken, rocketReachToken, xDiffbotRequestId);
+        EnhanceResponse response = api.enhance(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, rocketReachToken, xDiffbotRequestId);
 
         // TODO: test validations
     }
