@@ -57,25 +57,7 @@ public class BulkEnhanceEndpointApi {
         this.localVarApiClient = apiClient;
     }
 
-    /**
-     * Build call for bulkjobStatus
-     * @param bulkjobId Bulkjob Id (required)
-     * @param token Diffbot Token (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Bulkjob status </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Bulkjob is still executing or is stopped </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call bulkjobStatusCall(String bulkjobId, String token, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call bulkjobStatusCall(String bulkjobId, String token, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -123,105 +105,139 @@ public class BulkEnhanceEndpointApi {
 
     }
 
-    /**
-     * Bulk Enhance Status Endpoint
-     * Get status of a bulk Enhance job
-     * @param bulkjobId Bulkjob Id (required)
-     * @param token Diffbot Token (optional)
-     * @return BulkjobStatusResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Bulkjob status </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Bulkjob is still executing or is stopped </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public BulkjobStatusResponse bulkjobStatus(String bulkjobId, String token) throws ApiException {
-        ApiResponse<BulkjobStatusResponse> localVarResp = bulkjobStatusWithHttpInfo(bulkjobId, token);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Bulk Enhance Status Endpoint
-     * Get status of a bulk Enhance job
-     * @param bulkjobId Bulkjob Id (required)
-     * @param token Diffbot Token (optional)
-     * @return ApiResponse&lt;BulkjobStatusResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Bulkjob status </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Bulkjob is still executing or is stopped </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<BulkjobStatusResponse> bulkjobStatusWithHttpInfo(String bulkjobId, String token) throws ApiException {
+    private ApiResponse<BulkjobStatusResponse> bulkjobStatusWithHttpInfo(String bulkjobId, String token) throws ApiException {
         okhttp3.Call localVarCall = bulkjobStatusValidateBeforeCall(bulkjobId, token, null);
         Type localVarReturnType = new TypeToken<BulkjobStatusResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Bulk Enhance Status Endpoint (asynchronously)
-     * Get status of a bulk Enhance job
-     * @param bulkjobId Bulkjob Id (required)
-     * @param token Diffbot Token (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Bulkjob status </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Bulkjob is still executing or is stopped </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call bulkjobStatusAsync(String bulkjobId, String token, final ApiCallback<BulkjobStatusResponse> _callback) throws ApiException {
+    private okhttp3.Call bulkjobStatusAsync(String bulkjobId, String token, final ApiCallback<BulkjobStatusResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = bulkjobStatusValidateBeforeCall(bulkjobId, token, _callback);
         Type localVarReturnType = new TypeToken<BulkjobStatusResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIbulkjobStatusRequest {
+        private final String bulkjobId;
+        private String token;
+
+        private APIbulkjobStatusRequest(String bulkjobId) {
+            this.bulkjobId = bulkjobId;
+        }
+
+        /**
+         * Set token
+         * @param token Diffbot Token (optional)
+         * @return APIbulkjobStatusRequest
+         */
+        public APIbulkjobStatusRequest token(String token) {
+            this.token = token;
+            return this;
+        }
+
+        /**
+         * Build call for bulkjobStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Bulkjob status </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Bulkjob is still executing or is stopped </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return bulkjobStatusCall(bulkjobId, token, _callback);
+        }
+
+        /**
+         * Execute bulkjobStatus request
+         * @return BulkjobStatusResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Bulkjob status </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Bulkjob is still executing or is stopped </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public BulkjobStatusResponse execute() throws ApiException {
+            ApiResponse<BulkjobStatusResponse> localVarResp = bulkjobStatusWithHttpInfo(bulkjobId, token);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute bulkjobStatus request with HTTP info returned
+         * @return ApiResponse&lt;BulkjobStatusResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Bulkjob status </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Bulkjob is still executing or is stopped </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<BulkjobStatusResponse> executeWithHttpInfo() throws ApiException {
+            return bulkjobStatusWithHttpInfo(bulkjobId, token);
+        }
+
+        /**
+         * Execute bulkjobStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Bulkjob status </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Bulkjob is still executing or is stopped </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<BulkjobStatusResponse> _callback) throws ApiException {
+            return bulkjobStatusAsync(bulkjobId, token, _callback);
+        }
+    }
+
     /**
-     * Build call for enhanceBulkjob
-     * @param token Diffbot Token (optional)
-     * @param tag Tag (optional)
-     * @param mode &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. (optional)
-     * @param nonCanonicalFacts &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. (optional)
-     * @param jsonmode &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. (optional)
-     * @param rocketReachToken rocketReach token (optional)
-     * @param webhookurl Webhook URL (optional)
-     * @param xDiffbotRequestId Request UUID for tracking. If available, will be set on response. (optional)
-     * @param requestBody Bulk query payload (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Bulk Enhance Status Endpoint
+     * Get status of a bulk Enhance job
+     * @param bulkjobId Bulkjob Id (required)
+     * @return APIbulkjobStatusRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Acknowledgement with bulkjobId </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Error parsing request </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Bulkjob status </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Bulkjob is still executing or is stopped </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Insufficient credits </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Request too large </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call enhanceBulkjobCall(String token, List<String> tag, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String webhookurl, String xDiffbotRequestId, List<Object> requestBody, final ApiCallback _callback) throws ApiException {
+    public APIbulkjobStatusRequest bulkjobStatus(String bulkjobId) {
+        return new APIbulkjobStatusRequest(bulkjobId);
+    }
+    private okhttp3.Call enhanceBulkjobCall(String token, List<String> tag, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String webhookurl, String xDiffbotRequestId, List<Object> requestBody, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = requestBody;
 
         // create path and map variables
@@ -291,120 +307,224 @@ public class BulkEnhanceEndpointApi {
 
     }
 
-    /**
-     * Bulk Enhance Endpoint
-     * Enhance endpoint to find person or organization using partial data
-     * @param token Diffbot Token (optional)
-     * @param tag Tag (optional)
-     * @param mode &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. (optional)
-     * @param nonCanonicalFacts &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. (optional)
-     * @param jsonmode &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. (optional)
-     * @param rocketReachToken rocketReach token (optional)
-     * @param webhookurl Webhook URL (optional)
-     * @param xDiffbotRequestId Request UUID for tracking. If available, will be set on response. (optional)
-     * @param requestBody Bulk query payload (optional)
-     * @return BulkjobAccepted
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Acknowledgement with bulkjobId </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Error parsing request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Insufficient credits </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Request too large </td><td>  -  </td></tr>
-     </table>
-     */
-    public BulkjobAccepted enhanceBulkjob(String token, List<String> tag, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String webhookurl, String xDiffbotRequestId, List<Object> requestBody) throws ApiException {
-        ApiResponse<BulkjobAccepted> localVarResp = enhanceBulkjobWithHttpInfo(token, tag, mode, nonCanonicalFacts, jsonmode, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Bulk Enhance Endpoint
-     * Enhance endpoint to find person or organization using partial data
-     * @param token Diffbot Token (optional)
-     * @param tag Tag (optional)
-     * @param mode &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. (optional)
-     * @param nonCanonicalFacts &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. (optional)
-     * @param jsonmode &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. (optional)
-     * @param rocketReachToken rocketReach token (optional)
-     * @param webhookurl Webhook URL (optional)
-     * @param xDiffbotRequestId Request UUID for tracking. If available, will be set on response. (optional)
-     * @param requestBody Bulk query payload (optional)
-     * @return ApiResponse&lt;BulkjobAccepted&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Acknowledgement with bulkjobId </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Error parsing request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Insufficient credits </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Request too large </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<BulkjobAccepted> enhanceBulkjobWithHttpInfo(String token, List<String> tag, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String webhookurl, String xDiffbotRequestId, List<Object> requestBody) throws ApiException {
+    private ApiResponse<BulkjobAccepted> enhanceBulkjobWithHttpInfo(String token, List<String> tag, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String webhookurl, String xDiffbotRequestId, List<Object> requestBody) throws ApiException {
         okhttp3.Call localVarCall = enhanceBulkjobValidateBeforeCall(token, tag, mode, nonCanonicalFacts, jsonmode, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody, null);
         Type localVarReturnType = new TypeToken<BulkjobAccepted>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Bulk Enhance Endpoint (asynchronously)
-     * Enhance endpoint to find person or organization using partial data
-     * @param token Diffbot Token (optional)
-     * @param tag Tag (optional)
-     * @param mode &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. (optional)
-     * @param nonCanonicalFacts &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. (optional)
-     * @param jsonmode &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. (optional)
-     * @param rocketReachToken rocketReach token (optional)
-     * @param webhookurl Webhook URL (optional)
-     * @param xDiffbotRequestId Request UUID for tracking. If available, will be set on response. (optional)
-     * @param requestBody Bulk query payload (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Acknowledgement with bulkjobId </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Error parsing request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Insufficient credits </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-        <tr><td> 503 </td><td> Request too large </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call enhanceBulkjobAsync(String token, List<String> tag, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String webhookurl, String xDiffbotRequestId, List<Object> requestBody, final ApiCallback<BulkjobAccepted> _callback) throws ApiException {
+    private okhttp3.Call enhanceBulkjobAsync(String token, List<String> tag, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String webhookurl, String xDiffbotRequestId, List<Object> requestBody, final ApiCallback<BulkjobAccepted> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = enhanceBulkjobValidateBeforeCall(token, tag, mode, nonCanonicalFacts, jsonmode, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody, _callback);
         Type localVarReturnType = new TypeToken<BulkjobAccepted>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIenhanceBulkjobRequest {
+        private String token;
+        private List<String> tag;
+        private String mode;
+        private String nonCanonicalFacts;
+        private String jsonmode;
+        private String rocketReachToken;
+        private String webhookurl;
+        private String xDiffbotRequestId;
+        private List<Object> requestBody;
+
+        private APIenhanceBulkjobRequest() {
+        }
+
+        /**
+         * Set token
+         * @param token Diffbot Token (optional)
+         * @return APIenhanceBulkjobRequest
+         */
+        public APIenhanceBulkjobRequest token(String token) {
+            this.token = token;
+            return this;
+        }
+
+        /**
+         * Set tag
+         * @param tag Tag (optional)
+         * @return APIenhanceBulkjobRequest
+         */
+        public APIenhanceBulkjobRequest tag(List<String> tag) {
+            this.tag = tag;
+            return this;
+        }
+
+        /**
+         * Set mode
+         * @param mode &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. (optional)
+         * @return APIenhanceBulkjobRequest
+         */
+        public APIenhanceBulkjobRequest mode(String mode) {
+            this.mode = mode;
+            return this;
+        }
+
+        /**
+         * Set nonCanonicalFacts
+         * @param nonCanonicalFacts &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. (optional)
+         * @return APIenhanceBulkjobRequest
+         */
+        public APIenhanceBulkjobRequest nonCanonicalFacts(String nonCanonicalFacts) {
+            this.nonCanonicalFacts = nonCanonicalFacts;
+            return this;
+        }
+
+        /**
+         * Set jsonmode
+         * @param jsonmode &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. (optional)
+         * @return APIenhanceBulkjobRequest
+         */
+        public APIenhanceBulkjobRequest jsonmode(String jsonmode) {
+            this.jsonmode = jsonmode;
+            return this;
+        }
+
+        /**
+         * Set rocketReachToken
+         * @param rocketReachToken rocketReach token (optional)
+         * @return APIenhanceBulkjobRequest
+         */
+        public APIenhanceBulkjobRequest rocketReachToken(String rocketReachToken) {
+            this.rocketReachToken = rocketReachToken;
+            return this;
+        }
+
+        /**
+         * Set webhookurl
+         * @param webhookurl Webhook URL (optional)
+         * @return APIenhanceBulkjobRequest
+         */
+        public APIenhanceBulkjobRequest webhookurl(String webhookurl) {
+            this.webhookurl = webhookurl;
+            return this;
+        }
+
+        /**
+         * Set xDiffbotRequestId
+         * @param xDiffbotRequestId Request UUID for tracking. If available, will be set on response. (optional)
+         * @return APIenhanceBulkjobRequest
+         */
+        public APIenhanceBulkjobRequest xDiffbotRequestId(String xDiffbotRequestId) {
+            this.xDiffbotRequestId = xDiffbotRequestId;
+            return this;
+        }
+
+        /**
+         * Set requestBody
+         * @param requestBody Bulk query payload (optional)
+         * @return APIenhanceBulkjobRequest
+         */
+        public APIenhanceBulkjobRequest requestBody(List<Object> requestBody) {
+            this.requestBody = requestBody;
+            return this;
+        }
+
+        /**
+         * Build call for enhanceBulkjob
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Acknowledgement with bulkjobId </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Error parsing request </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 429 </td><td> Insufficient credits </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+            <tr><td> 503 </td><td> Request too large </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return enhanceBulkjobCall(token, tag, mode, nonCanonicalFacts, jsonmode, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody, _callback);
+        }
+
+        /**
+         * Execute enhanceBulkjob request
+         * @return BulkjobAccepted
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Acknowledgement with bulkjobId </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Error parsing request </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 429 </td><td> Insufficient credits </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+            <tr><td> 503 </td><td> Request too large </td><td>  -  </td></tr>
+         </table>
+         */
+        public BulkjobAccepted execute() throws ApiException {
+            ApiResponse<BulkjobAccepted> localVarResp = enhanceBulkjobWithHttpInfo(token, tag, mode, nonCanonicalFacts, jsonmode, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute enhanceBulkjob request with HTTP info returned
+         * @return ApiResponse&lt;BulkjobAccepted&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Acknowledgement with bulkjobId </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Error parsing request </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 429 </td><td> Insufficient credits </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+            <tr><td> 503 </td><td> Request too large </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<BulkjobAccepted> executeWithHttpInfo() throws ApiException {
+            return enhanceBulkjobWithHttpInfo(token, tag, mode, nonCanonicalFacts, jsonmode, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody);
+        }
+
+        /**
+         * Execute enhanceBulkjob request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Acknowledgement with bulkjobId </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Error parsing request </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 429 </td><td> Insufficient credits </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+            <tr><td> 503 </td><td> Request too large </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<BulkjobAccepted> _callback) throws ApiException {
+            return enhanceBulkjobAsync(token, tag, mode, nonCanonicalFacts, jsonmode, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody, _callback);
+        }
+    }
+
     /**
-     * Build call for pollBulkjob
-     * @param bulkjobId Bulkjob Id (required)
-     * @param token Diffbot Token (optional)
-     * @param csvmode Return results as csv (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * Bulk Enhance Endpoint
+     * Enhance endpoint to find person or organization using partial data
+     * @return APIenhanceBulkjobRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Bulkjob is still executing or is stopped </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Acknowledgement with bulkjobId </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Error parsing request </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Insufficient credits </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+        <tr><td> 503 </td><td> Request too large </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call pollBulkjobCall(String bulkjobId, String token, String csvmode, final ApiCallback _callback) throws ApiException {
+    public APIenhanceBulkjobRequest enhanceBulkjob() {
+        return new APIenhanceBulkjobRequest();
+    }
+    private okhttp3.Call pollBulkjobCall(String bulkjobId, String token, String csvmode, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -456,100 +576,150 @@ public class BulkEnhanceEndpointApi {
 
     }
 
-    /**
-     * Bulk Enhance Poll Endpoint
-     * Poll a bulk Enhance job
-     * @param bulkjobId Bulkjob Id (required)
-     * @param token Diffbot Token (optional)
-     * @param csvmode Return results as csv (optional)
-     * @return Object
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Bulkjob is still executing or is stopped </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public Object pollBulkjob(String bulkjobId, String token, String csvmode) throws ApiException {
-        ApiResponse<Object> localVarResp = pollBulkjobWithHttpInfo(bulkjobId, token, csvmode);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Bulk Enhance Poll Endpoint
-     * Poll a bulk Enhance job
-     * @param bulkjobId Bulkjob Id (required)
-     * @param token Diffbot Token (optional)
-     * @param csvmode Return results as csv (optional)
-     * @return ApiResponse&lt;Object&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Bulkjob is still executing or is stopped </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Object> pollBulkjobWithHttpInfo(String bulkjobId, String token, String csvmode) throws ApiException {
+    private ApiResponse<Object> pollBulkjobWithHttpInfo(String bulkjobId, String token, String csvmode) throws ApiException {
         okhttp3.Call localVarCall = pollBulkjobValidateBeforeCall(bulkjobId, token, csvmode, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     * Bulk Enhance Poll Endpoint (asynchronously)
-     * Poll a bulk Enhance job
-     * @param bulkjobId Bulkjob Id (required)
-     * @param token Diffbot Token (optional)
-     * @param csvmode Return results as csv (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
-        <tr><td> 201 </td><td> Bulkjob is still executing or is stopped </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call pollBulkjobAsync(String bulkjobId, String token, String csvmode, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call pollBulkjobAsync(String bulkjobId, String token, String csvmode, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = pollBulkjobValidateBeforeCall(bulkjobId, token, csvmode, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIpollBulkjobRequest {
+        private final String bulkjobId;
+        private String token;
+        private String csvmode;
+
+        private APIpollBulkjobRequest(String bulkjobId) {
+            this.bulkjobId = bulkjobId;
+        }
+
+        /**
+         * Set token
+         * @param token Diffbot Token (optional)
+         * @return APIpollBulkjobRequest
+         */
+        public APIpollBulkjobRequest token(String token) {
+            this.token = token;
+            return this;
+        }
+
+        /**
+         * Set csvmode
+         * @param csvmode Return results as csv (optional)
+         * @return APIpollBulkjobRequest
+         */
+        public APIpollBulkjobRequest csvmode(String csvmode) {
+            this.csvmode = csvmode;
+            return this;
+        }
+
+        /**
+         * Build call for pollBulkjob
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Bulkjob is still executing or is stopped </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return pollBulkjobCall(bulkjobId, token, csvmode, _callback);
+        }
+
+        /**
+         * Execute pollBulkjob request
+         * @return Object
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Bulkjob is still executing or is stopped </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public Object execute() throws ApiException {
+            ApiResponse<Object> localVarResp = pollBulkjobWithHttpInfo(bulkjobId, token, csvmode);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute pollBulkjob request with HTTP info returned
+         * @return ApiResponse&lt;Object&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Bulkjob is still executing or is stopped </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
+            return pollBulkjobWithHttpInfo(bulkjobId, token, csvmode);
+        }
+
+        /**
+         * Execute pollBulkjob request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
+            <tr><td> 201 </td><td> Bulkjob is still executing or is stopped </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
+            return pollBulkjobAsync(bulkjobId, token, csvmode, _callback);
+        }
+    }
+
     /**
-     * Build call for stopBulkjob
+     * Bulk Enhance Poll Endpoint
+     * Poll a bulk Enhance job
      * @param bulkjobId Bulkjob Id (required)
-     * @param token Diffbot Token (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIpollBulkjobRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Bulkjob is still executing or is stopped </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call stopBulkjobCall(String bulkjobId, String token, final ApiCallback _callback) throws ApiException {
+    public APIpollBulkjobRequest pollBulkjob(String bulkjobId) {
+        return new APIpollBulkjobRequest(bulkjobId);
+    }
+    private okhttp3.Call stopBulkjobCall(String bulkjobId, String token, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -597,59 +767,120 @@ public class BulkEnhanceEndpointApi {
 
     }
 
-    /**
-     * Bulkjob stop
-     * Stop an incomplete job
-     * @param bulkjobId Bulkjob Id (required)
-     * @param token Diffbot Token (optional)
-     * @return BulkjobRecoveryStatusResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public BulkjobRecoveryStatusResponse stopBulkjob(String bulkjobId, String token) throws ApiException {
-        ApiResponse<BulkjobRecoveryStatusResponse> localVarResp = stopBulkjobWithHttpInfo(bulkjobId, token);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Bulkjob stop
-     * Stop an incomplete job
-     * @param bulkjobId Bulkjob Id (required)
-     * @param token Diffbot Token (optional)
-     * @return ApiResponse&lt;BulkjobRecoveryStatusResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<BulkjobRecoveryStatusResponse> stopBulkjobWithHttpInfo(String bulkjobId, String token) throws ApiException {
+    private ApiResponse<BulkjobRecoveryStatusResponse> stopBulkjobWithHttpInfo(String bulkjobId, String token) throws ApiException {
         okhttp3.Call localVarCall = stopBulkjobValidateBeforeCall(bulkjobId, token, null);
         Type localVarReturnType = new TypeToken<BulkjobRecoveryStatusResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
+    private okhttp3.Call stopBulkjobAsync(String bulkjobId, String token, final ApiCallback<BulkjobRecoveryStatusResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = stopBulkjobValidateBeforeCall(bulkjobId, token, _callback);
+        Type localVarReturnType = new TypeToken<BulkjobRecoveryStatusResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIstopBulkjobRequest {
+        private final String bulkjobId;
+        private String token;
+
+        private APIstopBulkjobRequest(String bulkjobId) {
+            this.bulkjobId = bulkjobId;
+        }
+
+        /**
+         * Set token
+         * @param token Diffbot Token (optional)
+         * @return APIstopBulkjobRequest
+         */
+        public APIstopBulkjobRequest token(String token) {
+            this.token = token;
+            return this;
+        }
+
+        /**
+         * Build call for stopBulkjob
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return stopBulkjobCall(bulkjobId, token, _callback);
+        }
+
+        /**
+         * Execute stopBulkjob request
+         * @return BulkjobRecoveryStatusResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public BulkjobRecoveryStatusResponse execute() throws ApiException {
+            ApiResponse<BulkjobRecoveryStatusResponse> localVarResp = stopBulkjobWithHttpInfo(bulkjobId, token);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute stopBulkjob request with HTTP info returned
+         * @return ApiResponse&lt;BulkjobRecoveryStatusResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<BulkjobRecoveryStatusResponse> executeWithHttpInfo() throws ApiException {
+            return stopBulkjobWithHttpInfo(bulkjobId, token);
+        }
+
+        /**
+         * Execute stopBulkjob request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Invalid bulkjobId </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 404 </td><td> Bulkjob not found </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<BulkjobRecoveryStatusResponse> _callback) throws ApiException {
+            return stopBulkjobAsync(bulkjobId, token, _callback);
+        }
+    }
+
     /**
-     * Bulkjob stop (asynchronously)
+     * Bulkjob stop
      * Stop an incomplete job
      * @param bulkjobId Bulkjob Id (required)
-     * @param token Diffbot Token (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @return APIstopBulkjobRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
@@ -660,11 +891,7 @@ public class BulkEnhanceEndpointApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call stopBulkjobAsync(String bulkjobId, String token, final ApiCallback<BulkjobRecoveryStatusResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = stopBulkjobValidateBeforeCall(bulkjobId, token, _callback);
-        Type localVarReturnType = new TypeToken<BulkjobRecoveryStatusResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
+    public APIstopBulkjobRequest stopBulkjob(String bulkjobId) {
+        return new APIstopBulkjobRequest(bulkjobId);
     }
 }

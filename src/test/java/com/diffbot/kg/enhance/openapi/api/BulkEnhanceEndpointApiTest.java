@@ -47,7 +47,9 @@ public class BulkEnhanceEndpointApiTest {
     public void bulkjobStatusTest() throws ApiException {
         String bulkjobId = null;
         String token = null;
-        BulkjobStatusResponse response = api.bulkjobStatus(bulkjobId, token);
+        BulkjobStatusResponse response = api.bulkjobStatus(bulkjobId)
+                .token(token)
+                .execute();
 
         // TODO: test validations
     }
@@ -71,7 +73,17 @@ public class BulkEnhanceEndpointApiTest {
         String webhookurl = null;
         String xDiffbotRequestId = null;
         List<Object> requestBody = null;
-        BulkjobAccepted response = api.enhanceBulkjob(token, tag, mode, nonCanonicalFacts, jsonmode, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody);
+        BulkjobAccepted response = api.enhanceBulkjob()
+                .token(token)
+                .tag(tag)
+                .mode(mode)
+                .nonCanonicalFacts(nonCanonicalFacts)
+                .jsonmode(jsonmode)
+                .rocketReachToken(rocketReachToken)
+                .webhookurl(webhookurl)
+                .xDiffbotRequestId(xDiffbotRequestId)
+                .requestBody(requestBody)
+                .execute();
 
         // TODO: test validations
     }
@@ -89,7 +101,10 @@ public class BulkEnhanceEndpointApiTest {
         String bulkjobId = null;
         String token = null;
         String csvmode = null;
-        Object response = api.pollBulkjob(bulkjobId, token, csvmode);
+        Object response = api.pollBulkjob(bulkjobId)
+                .token(token)
+                .csvmode(csvmode)
+                .execute();
 
         // TODO: test validations
     }
@@ -106,7 +121,9 @@ public class BulkEnhanceEndpointApiTest {
     public void stopBulkjobTest() throws ApiException {
         String bulkjobId = null;
         String token = null;
-        BulkjobRecoveryStatusResponse response = api.stopBulkjob(bulkjobId, token);
+        BulkjobRecoveryStatusResponse response = api.stopBulkjob(bulkjobId)
+                .token(token)
+                .execute();
 
         // TODO: test validations
     }

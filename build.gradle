@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'java'
 
 group = 'com.diffbot'
-version = '1.0.0-rc.04'
+version = '1.0.0-rc.05'
 
 buildscript {
     repositories {
