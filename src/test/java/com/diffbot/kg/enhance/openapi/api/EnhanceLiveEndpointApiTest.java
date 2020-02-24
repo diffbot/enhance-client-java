@@ -60,7 +60,25 @@ public class EnhanceLiveEndpointApiTest {
         String jsonmode = null;
         String rocketReachToken = null;
         String xDiffbotRequestId = null;
-        EnhanceResponse response = api.enhance(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, rocketReachToken, xDiffbotRequestId);
+        EnhanceResponse response = api.enhance()
+                .token(token)
+                .type(type)
+                .id(id)
+                .name(name)
+                .url(url)
+                .phone(phone)
+                .email(email)
+                .description(description)
+                .employer(employer)
+                .title(title)
+                .school(school)
+                .location(location)
+                .mode(mode)
+                .nonCanonicalFacts(nonCanonicalFacts)
+                .jsonmode(jsonmode)
+                .rocketReachToken(rocketReachToken)
+                .xDiffbotRequestId(xDiffbotRequestId)
+                .execute();
 
         // TODO: test validations
     }

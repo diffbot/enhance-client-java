@@ -39,7 +39,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.diffbot</groupId>
   <artifactId>enhance-client</artifactId>
-  <version>1.0.0-rc.04</version>
+  <version>1.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -49,7 +49,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.diffbot:enhance-client:1.0.0-rc.04"
+compile "com.diffbot:enhance-client:1.0.0"
 ```
 
 ### Others
@@ -62,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/enhance-client-1.0.0-rc.04.jar`
+* `target/enhance-client-1.0.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -87,7 +87,9 @@ public class Example {
     String bulkjobId = "bulkjobId_example"; // String | Bulkjob Id
     String token = "token_example"; // String | Diffbot Token
     try {
-      BulkjobStatusResponse result = apiInstance.bulkjobStatus(bulkjobId, token);
+      BulkjobStatusResponse result = apiInstance.bulkjobStatus(bulkjobId)
+            .token(token)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BulkEnhanceEndpointApi#bulkjobStatus");

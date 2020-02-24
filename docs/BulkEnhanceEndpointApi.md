@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="bulkjobStatus"></a>
 # **bulkjobStatus**
-> BulkjobStatusResponse bulkjobStatus(bulkjobId, token)
+> BulkjobStatusResponse bulkjobStatus(bulkjobId).token(token).execute();
 
 Bulk Enhance Status Endpoint
 
@@ -36,7 +36,9 @@ public class Example {
     String bulkjobId = "bulkjobId_example"; // String | Bulkjob Id
     String token = "token_example"; // String | Diffbot Token
     try {
-      BulkjobStatusResponse result = apiInstance.bulkjobStatus(bulkjobId, token);
+      BulkjobStatusResponse result = apiInstance.bulkjobStatus(bulkjobId)
+            .token(token)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BulkEnhanceEndpointApi#bulkjobStatus");
@@ -81,7 +83,7 @@ No authorization required
 
 <a name="enhanceBulkjob"></a>
 # **enhanceBulkjob**
-> BulkjobAccepted enhanceBulkjob(token, tag, mode, nonCanonicalFacts, jsonmode, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody)
+> BulkjobAccepted enhanceBulkjob().token(token).tag(tag).mode(mode).nonCanonicalFacts(nonCanonicalFacts).jsonmode(jsonmode).rocketReachToken(rocketReachToken).webhookurl(webhookurl).xDiffbotRequestId(xDiffbotRequestId).requestBody(requestBody).execute();
 
 Bulk Enhance Endpoint
 
@@ -112,7 +114,17 @@ public class Example {
     String xDiffbotRequestId = "xDiffbotRequestId_example"; // String | Request UUID for tracking. If available, will be set on response.
     List<Object> requestBody = null; // List<Object> | Bulk query payload
     try {
-      BulkjobAccepted result = apiInstance.enhanceBulkjob(token, tag, mode, nonCanonicalFacts, jsonmode, rocketReachToken, webhookurl, xDiffbotRequestId, requestBody);
+      BulkjobAccepted result = apiInstance.enhanceBulkjob()
+            .token(token)
+            .tag(tag)
+            .mode(mode)
+            .nonCanonicalFacts(nonCanonicalFacts)
+            .jsonmode(jsonmode)
+            .rocketReachToken(rocketReachToken)
+            .webhookurl(webhookurl)
+            .xDiffbotRequestId(xDiffbotRequestId)
+            .requestBody(requestBody)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BulkEnhanceEndpointApi#enhanceBulkjob");
@@ -164,7 +176,7 @@ No authorization required
 
 <a name="pollBulkjob"></a>
 # **pollBulkjob**
-> Object pollBulkjob(bulkjobId, token, csvmode)
+> Object pollBulkjob(bulkjobId).token(token).csvmode(csvmode).execute();
 
 Bulk Enhance Poll Endpoint
 
@@ -189,7 +201,10 @@ public class Example {
     String token = "token_example"; // String | Diffbot Token
     String csvmode = "csvmode_example"; // String | Return results as csv
     try {
-      Object result = apiInstance.pollBulkjob(bulkjobId, token, csvmode);
+      Object result = apiInstance.pollBulkjob(bulkjobId)
+            .token(token)
+            .csvmode(csvmode)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BulkEnhanceEndpointApi#pollBulkjob");
@@ -235,7 +250,7 @@ No authorization required
 
 <a name="stopBulkjob"></a>
 # **stopBulkjob**
-> BulkjobRecoveryStatusResponse stopBulkjob(bulkjobId, token)
+> BulkjobRecoveryStatusResponse stopBulkjob(bulkjobId).token(token).execute();
 
 Bulkjob stop
 
@@ -259,7 +274,9 @@ public class Example {
     String bulkjobId = "bulkjobId_example"; // String | Bulkjob Id
     String token = "token_example"; // String | Diffbot Token
     try {
-      BulkjobRecoveryStatusResponse result = apiInstance.stopBulkjob(bulkjobId, token);
+      BulkjobRecoveryStatusResponse result = apiInstance.stopBulkjob(bulkjobId)
+            .token(token)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling BulkEnhanceEndpointApi#stopBulkjob");

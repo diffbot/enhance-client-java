@@ -55,39 +55,7 @@ public class EnhanceLiveEndpointApi {
         this.localVarApiClient = apiClient;
     }
 
-    /**
-     * Build call for enhance
-     * @param token Diffbot Token (optional)
-     * @param type Diffbot entity type (optional)
-     * @param id DiffbotId of entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param name Name of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param url Origin or homepage URI of entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param phone Phone of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param email Email of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
-     * @param description Description of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param employer Employer of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
-     * @param title Title of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
-     * @param school School of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
-     * @param location Location of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param mode &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. (optional)
-     * @param nonCanonicalFacts &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. (optional)
-     * @param jsonmode &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. (optional)
-     * @param rocketReachToken rocketReach token (optional)
-     * @param xDiffbotRequestId Request UUID for tracking. If available, will be set on response. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Error parsing request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Insufficient credits </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call enhanceCall(String token, String type, String id, String name, String url, String phone, String email, String description, String employer, String title, String school, String location, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String xDiffbotRequestId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call enhanceCall(String token, String type, String id, String name, String url, String phone, String email, String description, String employer, String title, String school, String location, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String xDiffbotRequestId, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -193,104 +161,293 @@ public class EnhanceLiveEndpointApi {
 
     }
 
-    /**
-     * Live Enhance Endpoint
-     * Enhance endpoint to find person or organization using partial data
-     * @param token Diffbot Token (optional)
-     * @param type Diffbot entity type (optional)
-     * @param id DiffbotId of entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param name Name of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param url Origin or homepage URI of entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param phone Phone of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param email Email of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
-     * @param description Description of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param employer Employer of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
-     * @param title Title of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
-     * @param school School of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
-     * @param location Location of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param mode &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. (optional)
-     * @param nonCanonicalFacts &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. (optional)
-     * @param jsonmode &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. (optional)
-     * @param rocketReachToken rocketReach token (optional)
-     * @param xDiffbotRequestId Request UUID for tracking. If available, will be set on response. (optional)
-     * @return EnhanceResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Error parsing request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Insufficient credits </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public EnhanceResponse enhance(String token, String type, String id, String name, String url, String phone, String email, String description, String employer, String title, String school, String location, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String xDiffbotRequestId) throws ApiException {
-        ApiResponse<EnhanceResponse> localVarResp = enhanceWithHttpInfo(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, rocketReachToken, xDiffbotRequestId);
-        return localVarResp.getData();
-    }
 
-    /**
-     * Live Enhance Endpoint
-     * Enhance endpoint to find person or organization using partial data
-     * @param token Diffbot Token (optional)
-     * @param type Diffbot entity type (optional)
-     * @param id DiffbotId of entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param name Name of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param url Origin or homepage URI of entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param phone Phone of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param email Email of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
-     * @param description Description of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param employer Employer of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
-     * @param title Title of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
-     * @param school School of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
-     * @param location Location of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param mode &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. (optional)
-     * @param nonCanonicalFacts &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. (optional)
-     * @param jsonmode &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. (optional)
-     * @param rocketReachToken rocketReach token (optional)
-     * @param xDiffbotRequestId Request UUID for tracking. If available, will be set on response. (optional)
-     * @return ApiResponse&lt;EnhanceResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Error parsing request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
-        <tr><td> 429 </td><td> Insufficient credits </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<EnhanceResponse> enhanceWithHttpInfo(String token, String type, String id, String name, String url, String phone, String email, String description, String employer, String title, String school, String location, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String xDiffbotRequestId) throws ApiException {
+    private ApiResponse<EnhanceResponse> enhanceWithHttpInfo(String token, String type, String id, String name, String url, String phone, String email, String description, String employer, String title, String school, String location, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String xDiffbotRequestId) throws ApiException {
         okhttp3.Call localVarCall = enhanceValidateBeforeCall(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, rocketReachToken, xDiffbotRequestId, null);
         Type localVarReturnType = new TypeToken<EnhanceResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
+    private okhttp3.Call enhanceAsync(String token, String type, String id, String name, String url, String phone, String email, String description, String employer, String title, String school, String location, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String xDiffbotRequestId, final ApiCallback<EnhanceResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = enhanceValidateBeforeCall(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, rocketReachToken, xDiffbotRequestId, _callback);
+        Type localVarReturnType = new TypeToken<EnhanceResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIenhanceRequest {
+        private String token;
+        private String type;
+        private String id;
+        private String name;
+        private String url;
+        private String phone;
+        private String email;
+        private String description;
+        private String employer;
+        private String title;
+        private String school;
+        private String location;
+        private String mode;
+        private String nonCanonicalFacts;
+        private String jsonmode;
+        private String rocketReachToken;
+        private String xDiffbotRequestId;
+
+        private APIenhanceRequest() {
+        }
+
+        /**
+         * Set token
+         * @param token Diffbot Token (optional)
+         * @return APIenhanceRequest
+         */
+        public APIenhanceRequest token(String token) {
+            this.token = token;
+            return this;
+        }
+
+        /**
+         * Set type
+         * @param type Diffbot entity type (optional)
+         * @return APIenhanceRequest
+         */
+        public APIenhanceRequest type(String type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * Set id
+         * @param id DiffbotId of entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
+         * @return APIenhanceRequest
+         */
+        public APIenhanceRequest id(String id) {
+            this.id = id;
+            return this;
+        }
+
+        /**
+         * Set name
+         * @param name Name of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
+         * @return APIenhanceRequest
+         */
+        public APIenhanceRequest name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        /**
+         * Set url
+         * @param url Origin or homepage URI of entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
+         * @return APIenhanceRequest
+         */
+        public APIenhanceRequest url(String url) {
+            this.url = url;
+            return this;
+        }
+
+        /**
+         * Set phone
+         * @param phone Phone of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
+         * @return APIenhanceRequest
+         */
+        public APIenhanceRequest phone(String phone) {
+            this.phone = phone;
+            return this;
+        }
+
+        /**
+         * Set email
+         * @param email Email of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
+         * @return APIenhanceRequest
+         */
+        public APIenhanceRequest email(String email) {
+            this.email = email;
+            return this;
+        }
+
+        /**
+         * Set description
+         * @param description Description of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
+         * @return APIenhanceRequest
+         */
+        public APIenhanceRequest description(String description) {
+            this.description = description;
+            return this;
+        }
+
+        /**
+         * Set employer
+         * @param employer Employer of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
+         * @return APIenhanceRequest
+         */
+        public APIenhanceRequest employer(String employer) {
+            this.employer = employer;
+            return this;
+        }
+
+        /**
+         * Set title
+         * @param title Title of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
+         * @return APIenhanceRequest
+         */
+        public APIenhanceRequest title(String title) {
+            this.title = title;
+            return this;
+        }
+
+        /**
+         * Set school
+         * @param school School of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
+         * @return APIenhanceRequest
+         */
+        public APIenhanceRequest school(String school) {
+            this.school = school;
+            return this;
+        }
+
+        /**
+         * Set location
+         * @param location Location of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
+         * @return APIenhanceRequest
+         */
+        public APIenhanceRequest location(String location) {
+            this.location = location;
+            return this;
+        }
+
+        /**
+         * Set mode
+         * @param mode &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. (optional)
+         * @return APIenhanceRequest
+         */
+        public APIenhanceRequest mode(String mode) {
+            this.mode = mode;
+            return this;
+        }
+
+        /**
+         * Set nonCanonicalFacts
+         * @param nonCanonicalFacts &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. (optional)
+         * @return APIenhanceRequest
+         */
+        public APIenhanceRequest nonCanonicalFacts(String nonCanonicalFacts) {
+            this.nonCanonicalFacts = nonCanonicalFacts;
+            return this;
+        }
+
+        /**
+         * Set jsonmode
+         * @param jsonmode &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. (optional)
+         * @return APIenhanceRequest
+         */
+        public APIenhanceRequest jsonmode(String jsonmode) {
+            this.jsonmode = jsonmode;
+            return this;
+        }
+
+        /**
+         * Set rocketReachToken
+         * @param rocketReachToken rocketReach token (optional)
+         * @return APIenhanceRequest
+         */
+        public APIenhanceRequest rocketReachToken(String rocketReachToken) {
+            this.rocketReachToken = rocketReachToken;
+            return this;
+        }
+
+        /**
+         * Set xDiffbotRequestId
+         * @param xDiffbotRequestId Request UUID for tracking. If available, will be set on response. (optional)
+         * @return APIenhanceRequest
+         */
+        public APIenhanceRequest xDiffbotRequestId(String xDiffbotRequestId) {
+            this.xDiffbotRequestId = xDiffbotRequestId;
+            return this;
+        }
+
+        /**
+         * Build call for enhance
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Error parsing request </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 429 </td><td> Insufficient credits </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return enhanceCall(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, rocketReachToken, xDiffbotRequestId, _callback);
+        }
+
+        /**
+         * Execute enhance request
+         * @return EnhanceResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Error parsing request </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 429 </td><td> Insufficient credits </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public EnhanceResponse execute() throws ApiException {
+            ApiResponse<EnhanceResponse> localVarResp = enhanceWithHttpInfo(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, rocketReachToken, xDiffbotRequestId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute enhance request with HTTP info returned
+         * @return ApiResponse&lt;EnhanceResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Error parsing request </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 429 </td><td> Insufficient credits </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<EnhanceResponse> executeWithHttpInfo() throws ApiException {
+            return enhanceWithHttpInfo(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, rocketReachToken, xDiffbotRequestId);
+        }
+
+        /**
+         * Execute enhance request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Enhanced entity </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td> Error parsing request </td><td>  -  </td></tr>
+            <tr><td> 401 </td><td> Token not specified or other client errors </td><td>  -  </td></tr>
+            <tr><td> 429 </td><td> Insufficient credits </td><td>  -  </td></tr>
+            <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<EnhanceResponse> _callback) throws ApiException {
+            return enhanceAsync(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, rocketReachToken, xDiffbotRequestId, _callback);
+        }
+    }
+
     /**
-     * Live Enhance Endpoint (asynchronously)
+     * Live Enhance Endpoint
      * Enhance endpoint to find person or organization using partial data
-     * @param token Diffbot Token (optional)
-     * @param type Diffbot entity type (optional)
-     * @param id DiffbotId of entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param name Name of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param url Origin or homepage URI of entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param phone Phone of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param email Email of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
-     * @param description Description of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param employer Employer of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
-     * @param title Title of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
-     * @param school School of the entity to enhance. Parameter can be used only with type &#x60;Person&#x60; (optional)
-     * @param location Location of the entity to enhance. Parameter can be used with types &#x60;Person&#x60; and &#x60;Organization&#x60; (optional)
-     * @param mode &#x60;mode&#x3D;refresh&#x60; indicates that Diffbot will attempt to recrawl all the origins of the identified entity and reconstruct the returned entity from this refreshed data. (optional)
-     * @param nonCanonicalFacts &#x60;nonCanonicalFacts&#x3D;true&#x60; returns non-canonical facts. (optional)
-     * @param jsonmode &#x60;jsonmode&#x3D;extended&#x60; returns origin information for facts. (optional)
-     * @param rocketReachToken rocketReach token (optional)
-     * @param xDiffbotRequestId Request UUID for tracking. If available, will be set on response. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @return APIenhanceRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
@@ -301,11 +458,7 @@ public class EnhanceLiveEndpointApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call enhanceAsync(String token, String type, String id, String name, String url, String phone, String email, String description, String employer, String title, String school, String location, String mode, String nonCanonicalFacts, String jsonmode, String rocketReachToken, String xDiffbotRequestId, final ApiCallback<EnhanceResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = enhanceValidateBeforeCall(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, rocketReachToken, xDiffbotRequestId, _callback);
-        Type localVarReturnType = new TypeToken<EnhanceResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
+    public APIenhanceRequest enhance() {
+        return new APIenhanceRequest();
     }
 }

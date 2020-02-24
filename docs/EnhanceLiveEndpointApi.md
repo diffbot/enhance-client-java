@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="enhance"></a>
 # **enhance**
-> EnhanceResponse enhance(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, rocketReachToken, xDiffbotRequestId)
+> EnhanceResponse enhance().token(token).type(type).id(id).name(name).url(url).phone(phone).email(email).description(description).employer(employer).title(title).school(school).location(location).mode(mode).nonCanonicalFacts(nonCanonicalFacts).jsonmode(jsonmode).rocketReachToken(rocketReachToken).xDiffbotRequestId(xDiffbotRequestId).execute();
 
 Live Enhance Endpoint
 
@@ -48,7 +48,25 @@ public class Example {
     String rocketReachToken = "rocketReachToken_example"; // String | rocketReach token
     String xDiffbotRequestId = "xDiffbotRequestId_example"; // String | Request UUID for tracking. If available, will be set on response.
     try {
-      EnhanceResponse result = apiInstance.enhance(token, type, id, name, url, phone, email, description, employer, title, school, location, mode, nonCanonicalFacts, jsonmode, rocketReachToken, xDiffbotRequestId);
+      EnhanceResponse result = apiInstance.enhance()
+            .token(token)
+            .type(type)
+            .id(id)
+            .name(name)
+            .url(url)
+            .phone(phone)
+            .email(email)
+            .description(description)
+            .employer(employer)
+            .title(title)
+            .school(school)
+            .location(location)
+            .mode(mode)
+            .nonCanonicalFacts(nonCanonicalFacts)
+            .jsonmode(jsonmode)
+            .rocketReachToken(rocketReachToken)
+            .xDiffbotRequestId(xDiffbotRequestId)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling EnhanceLiveEndpointApi#enhance");
